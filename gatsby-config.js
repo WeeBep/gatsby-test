@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Testing Gatsby`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    // este es el plugin que nos permite generar links dentro de markdown
+    "gatsby-plugin-catch-links",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,6 +15,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        // Esta es la config para que funcionen los markdown posts
+        name: "pages",
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    // Este tambien es para que funciones markdown
+    "gatsby-transformer-remark",
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
